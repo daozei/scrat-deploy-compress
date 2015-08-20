@@ -1,0 +1,24 @@
+{
+  "name": "scrat-deploy-compress",
+  "version": "0.1.0",
+  "description": "fis deploy zip plugin",
+  "author": {
+    "name": "TZ",
+    "email": "atian25@qq.com"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "jszip": "^2.5.0",
+    "moment": "^2.10.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:scrat-team/scrat-deploy-compress.git"
+  },
+  "keywords": [
+    "fis",
+    "fis-plugin"
+  ],
+  "homepage": "https://github.com/scrat-team/scrat-deploy-compress",
+  "license": "MIT"
+}

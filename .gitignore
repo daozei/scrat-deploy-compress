@@ -1,0 +1,14 @@
+component_modules
+node_modules
+bower_components
+.DS_Store
+*.bak
+*.tmp
+Thumbs.db
+*.psd
+.idea
+/dist
+/tools/apk
+.project
+.settings
+npm-debug.log
