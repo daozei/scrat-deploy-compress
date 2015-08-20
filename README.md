@@ -17,7 +17,16 @@ fis.config.merge({
         zip: {
           //不配置该项, 则默认为 ../dist/{name}_v{version}_{timestamp}.zip
           file: '../dist/test.zip'
-        }
+        },
+        remote: {
+          url: '',
+          uploadField: 'files[]',
+          formData: {
+          },
+          auth: {
+            username: '',
+            password: ''
+         }
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "name": "scrat-deploy-compress",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "fis deploy zip plugin",
   "author": {
     "name": "TZ",
@@ -9,7 +9,9 @@
   "main": "index.js",
   "dependencies": {
     "jszip": "^2.5.0",
-    "moment": "^2.10.6"
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "request": "^2.61.0"
   },
   "repository": {
     "type": "git",

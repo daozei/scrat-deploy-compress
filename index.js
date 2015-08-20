@@ -1,6 +1,8 @@
 var JSZip = require("jszip");
 var fs = require('fs');
 var moment = require('moment');
+var request = require('request');
+var _ = require('lodash');
 
 var cwd = process.cwd();
 
@@ -53,6 +55,30 @@ module.exports = function(files, settings, callback){
 
   fis.log.notice('compress to: ' + targetPath);
   fs.writeFileSync(targetPath, zip.generate({type:"nodebuffer"}));
+
+  //上传
+  if(conf.url){
+    var formData = {};
+    formData[conf.uploadField] = fs.createReadStream(targetPath);
+
+    //TODO: collect git commit
+    //TODO: support auth prompt
+    //TODO: support prompt cache
+
+    var requestConfig = _.merge({
+      json: true,
+      formData: formData
+    }, conf);
+
+    fis.log.notice('upload to: ' + conf.url);
+    request.post(requestConfig, function (err, response, body) {
+      if (err || body.error || body.sucess === false) {
+        return fis.log.error('upload fail: ' + JSON.stringify(err || body));
+      }else{
+        fis.log.notice('upload done, server responded with: ' + JSON.stringify(body));
+      }
+    });
+  }
 };
 
 module.exports.fullpack = true;
